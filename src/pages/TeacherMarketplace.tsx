@@ -6,7 +6,8 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Star, Search, Filter, Play, BookOpen, FileQuestion, Download, Heart, TrendingUp, Award } from "lucide-react";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Star, Search, Filter, Play, BookOpen, FileQuestion, Download, Heart, TrendingUp, Award, Info, Check } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 interface Course {
@@ -34,7 +35,7 @@ interface Content {
   tags: string[];
   isFavorite: boolean;
   isSelected: boolean;
-  price: "free" | number;
+  price: number;
 }
 
 const sampleCourses: Course[] = [
@@ -53,198 +54,198 @@ const sampleCourses: Course[] = [
 const sampleContent: Content[] = [
   {
     id: "1",
-    title: "AP Computer Science A - Data Structures",
-    description: "Comprehensive video series covering arrays, ArrayLists, and 2D arrays with practical Java implementations.",
+    title: "AP Computer Science A",
+    description: "Comprehensive course covering all AP CS A topics including object-oriented programming, data structures, algorithms, and problem-solving techniques. Includes video lectures, practice problems, and exam preparation materials.",
     subject: "Computer Science",
     type: "video",
     creator: {
       name: "Prof. Maria Rodriguez",
-      institution: "MIT",
+      institution: "EduTech Publishers",
       avatar: "/api/placeholder/32/32"
     },
     effectiveness: 94,
     rating: 4.8,
-    reviewCount: 247,
-    duration: "3h 45m",
+    reviewCount: 347,
+    duration: "45h 30m",
     difficulty: "intermediate",
-    tags: ["arrays", "data-structures", "java", "ap-cs"],
+    tags: ["complete-course", "ap-exam-prep", "java", "oop", "data-structures"],
     isFavorite: false,
-    isSelected: true,
-    price: "free"
+    isSelected: false,
+    price: 299
   },
   {
     id: "2", 
-    title: "AP Computer Science A - Object-Oriented Programming",
-    description: "Complete guide to classes, objects, inheritance, and polymorphism with real-world examples and practice problems.",
+    title: "AP Computer Science A",
+    description: "Interactive AP Computer Science A course with hands-on coding exercises, real-world projects, and comprehensive assessments. Perfect for students preparing for the AP exam with step-by-step guidance.",
     subject: "Computer Science",
     type: "notes",
     creator: {
       name: "Dr. James Wilson",
-      institution: "Stanford University"
+      institution: "CodeCraft Education"
     },
     effectiveness: 89,
     rating: 4.6,
-    reviewCount: 156,
+    reviewCount: 256,
     difficulty: "intermediate",
-    tags: ["oop", "classes", "inheritance", "java"],
-    isFavorite: true,
+    tags: ["interactive", "projects", "assessments", "java", "ap-prep"],
+    isFavorite: false,
     isSelected: false,
-    price: "free"
+    price: 249
   },
   {
     id: "3",
-    title: "AP Computer Science A - Algorithm Analysis",
-    description: "Interactive quiz series testing understanding of searching, sorting, and algorithm efficiency concepts.",
+    title: "AP Computer Science A",
+    description: "Gamified learning experience for AP Computer Science A with achievement badges, progress tracking, and adaptive learning paths. Makes coding fun while ensuring thorough exam preparation.",
     subject: "Computer Science", 
     type: "quiz",
     creator: {
       name: "Ms. Sarah Chen",
-      institution: "Princeton Academy"
+      institution: "GameLearn Studios"
     },
     effectiveness: 87,
     rating: 4.5,
-    reviewCount: 98,
-    difficulty: "advanced",
-    tags: ["algorithms", "sorting", "searching", "big-o"],
+    reviewCount: 198,
+    difficulty: "beginner",
+    tags: ["gamified", "adaptive-learning", "badges", "fun", "beginner-friendly"],
     isFavorite: false,
-    isSelected: true,
-    price: "free"
+    isSelected: false,
+    price: 199
   },
   {
     id: "4",
-    title: "AP Computer Science A - Recursion Mastery",
-    description: "Video lectures explaining recursive thinking with step-by-step problem solving and visualization.",
+    title: "AP Computer Science A",
+    description: "Premium AP Computer Science A course from top university professors. Features advanced problem-solving techniques, algorithm optimization, and college-level programming concepts.",
     subject: "Computer Science",
     type: "video", 
     creator: {
       name: "Prof. David Kim",
-      institution: "Harvard University"
+      institution: "Academic Elite"
     },
-    effectiveness: 92,
-    rating: 4.7,
-    reviewCount: 203,
-    duration: "2h 30m",
+    effectiveness: 96,
+    rating: 4.9,
+    reviewCount: 403,
+    duration: "52h 15m",
     difficulty: "advanced",
-    tags: ["recursion", "problem-solving", "java"],
+    tags: ["premium", "university-level", "advanced", "optimization", "elite"],
     isFavorite: false,
     isSelected: false,
-    price: 15
+    price: 399
   },
   {
     id: "5",
-    title: "AP Computer Science A - Unit Testing & Debugging",
-    description: "Comprehensive notes on writing test cases, debugging strategies, and code optimization techniques.",
+    title: "AP Computer Science A",
+    description: "Budget-friendly AP Computer Science A course with all essential topics covered. No-frills approach focusing on core concepts and exam success without breaking the bank.",
     subject: "Computer Science",
     type: "notes",
     creator: {
       name: "Dr. Lisa Park",
-      institution: "University of Chicago"
+      institution: "BudgetLearn"
     },
     effectiveness: 85,
     rating: 4.4,
-    reviewCount: 134,
+    reviewCount: 334,
     difficulty: "intermediate",
-    tags: ["testing", "debugging", "best-practices"],
-    isFavorite: true,
+    tags: ["budget-friendly", "essential", "core-concepts", "affordable", "exam-focused"],
+    isFavorite: false,
     isSelected: false,
-    price: "free"
+    price: 99
   },
   {
     id: "6",
-    title: "AP Computer Science A - ArrayList Methods",
-    description: "Detailed video guide covering all ArrayList methods with practical coding examples and common use cases.",
+    title: "AP Computer Science A",
+    description: "Visual learning AP Computer Science A course with animations, diagrams, and interactive visualizations. Perfect for visual learners who need to see concepts in action.",
     subject: "Computer Science",
     type: "video",
     creator: {
       name: "Dr. Jennifer Walsh",
-      institution: "Columbia University"
+      institution: "Visual Learning Co."
     },
     effectiveness: 91,
     rating: 4.7,
-    reviewCount: 189,
-    duration: "1h 50m",
+    reviewCount: 289,
+    duration: "38h 45m",
     difficulty: "beginner",
-    tags: ["arraylist", "methods", "java", "collections"],
+    tags: ["visual-learning", "animations", "diagrams", "interactive", "visual-learners"],
     isFavorite: false,
     isSelected: false,
-    price: "free"
+    price: 229
   },
   {
     id: "7",
-    title: "AP Computer Science A - Conditional Logic Practice",
-    description: "Interactive problem set focusing on if-statements, boolean logic, and decision-making in programming.",
+    title: "AP Computer Science A",
+    description: "Fast-track AP Computer Science A course designed for accelerated learning. Intensive curriculum that covers all topics in half the time while maintaining quality and depth.",
     subject: "Computer Science",
     type: "quiz",
     creator: {
       name: "Mr. Robert Kim",
-      institution: "Cal Tech"
+      institution: "FastTrack Education"
     },
     effectiveness: 88,
     rating: 4.5,
     reviewCount: 156,
-    difficulty: "beginner",
-    tags: ["conditionals", "boolean", "logic", "java"],
+    difficulty: "advanced",
+    tags: ["fast-track", "accelerated", "intensive", "time-efficient", "quick-learning"],
     isFavorite: false,
     isSelected: false,
-    price: "free"
+    price: 349
   },
   {
     id: "8",
-    title: "AP Computer Science A - Loop Structures",
-    description: "Complete study notes covering for loops, while loops, and nested iterations with performance analysis.",
+    title: "AP Computer Science A",
+    description: "Self-paced AP Computer Science A course with flexible scheduling and personalized learning paths. Study at your own speed with comprehensive support materials.",
     subject: "Computer Science",
     type: "notes",
     creator: {
       name: "Prof. Amanda Chen",
-      institution: "Berkeley"
+      institution: "FlexiLearn"
     },
     effectiveness: 86,
     rating: 4.4,
     reviewCount: 201,
     difficulty: "intermediate",
-    tags: ["loops", "iteration", "for-loops", "while-loops"],
-    isFavorite: true,
+    tags: ["self-paced", "flexible", "personalized", "comprehensive", "support"],
+    isFavorite: false,
     isSelected: false,
-    price: "free"
+    price: 179
   },
   {
     id: "9",
-    title: "AP Computer Science A - String Manipulation",
-    description: "Video series on String methods, substring operations, and character processing with real applications.",
+    title: "AP Computer Science A",
+    description: "Project-based AP Computer Science A course where students build real applications while learning. Combines theory with practical experience through hands-on development.",
     subject: "Computer Science",
     type: "video",
     creator: {
       name: "Dr. Michael Santos",
-      institution: "Yale University"
+      institution: "ProjectBased Learning"
     },
-    effectiveness: 90,
-    rating: 4.6,
-    reviewCount: 173,
-    duration: "2h 15m",
+    effectiveness: 93,
+    rating: 4.8,
+    reviewCount: 273,
+    duration: "48h 20m",
     difficulty: "intermediate",
-    tags: ["strings", "methods", "substring", "java"],
+    tags: ["project-based", "real-applications", "hands-on", "practical", "development"],
     isFavorite: false,
     isSelected: false,
-    price: 12
+    price: 279
   },
   {
     id: "10",
-    title: "AP Computer Science A - Final Exam Prep",
-    description: "Comprehensive quiz pack covering all AP CS A topics with exam-style questions and detailed explanations.",
+    title: "AP Computer Science A",
+    description: "Official AP Computer Science A course with College Board alignment and guaranteed exam preparation. Includes official practice tests and certified instructor support.",
     subject: "Computer Science",
     type: "quiz",
     creator: {
       name: "Ms. Rachel Park",
-      institution: "Nexus Academy"
+      institution: "Official AP Prep"
     },
     effectiveness: 95,
     rating: 4.9,
-    reviewCount: 312,
-    difficulty: "advanced",
-    tags: ["exam-prep", "comprehensive", "ap-cs", "review"],
+    reviewCount: 512,
+    difficulty: "intermediate",
+    tags: ["official", "college-board", "certified", "guaranteed", "practice-tests"],
     isFavorite: false,
     isSelected: false,
-    price: 25
+    price: 329
   }
 ];
 
@@ -258,6 +259,7 @@ export default function TeacherMarketplace() {
   const [selectedType, setSelectedType] = useState<string>("all-types");
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>("all-levels");
   const [sortBy, setSortBy] = useState<"effectiveness" | "rating" | "newest">("effectiveness");
+  const [selectedCourseDetail, setSelectedCourseDetail] = useState<Content | null>(null);
 
   const subjects = [...new Set(content.map(c => c.subject))];
   
@@ -463,7 +465,7 @@ export default function TeacherMarketplace() {
                   <Badge variant="outline" className={getDifficultyColor(item.difficulty)}>
                     {item.difficulty}
                   </Badge>
-                  {item.price === "free" ? (
+                  {item.price === 0 ? (
                     <Badge variant="secondary">Free</Badge>
                   ) : (
                     <Badge variant="outline">${item.price}</Badge>
@@ -543,20 +545,109 @@ export default function TeacherMarketplace() {
                   className="flex-1"
                   onClick={() => toggleSelected(item.id)}
                 >
-                  {item.isSelected ? "Selected" : "Select"}
+                  {item.isSelected ? (
+                    <>
+                      <Check className="h-4 w-4 mr-2" />
+                      Selected
+                    </>
+                  ) : (
+                    "Select Course"
+                  )}
                 </Button>
-                <Button 
-                  variant="ghost" 
-                  size="icon"
-                  onClick={() => {
-                    toast({
-                      title: "Content Details",
-                      description: `Viewing details for: ${item.title}`,
-                    });
-                  }}
-                >
-                  <Download className="h-4 w-4" />
-                </Button>
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button 
+                      variant="ghost" 
+                      size="icon"
+                      onClick={() => setSelectedCourseDetail(item)}
+                    >
+                      <Info className="h-4 w-4" />
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-2xl">
+                    <DialogHeader>
+                      <DialogTitle className="flex items-center space-x-2">
+                        {getTypeIcon(item.type)}
+                        <span>{item.title}</span>
+                        <Badge variant="outline" className={getDifficultyColor(item.difficulty)}>
+                          {item.difficulty}
+                        </Badge>
+                      </DialogTitle>
+                      <DialogDescription>
+                        by {item.creator.name} at {item.creator.institution}
+                      </DialogDescription>
+                    </DialogHeader>
+                    
+                    <div className="space-y-6">
+                      {/* Detailed Description */}
+                      <div>
+                        <h4 className="font-semibold mb-2">Course Description</h4>
+                        <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+                      </div>
+
+                      {/* Course Metrics */}
+                      <div className="grid grid-cols-3 gap-6">
+                        <div className="text-center">
+                          <div className="flex items-center justify-center space-x-1 mb-1">
+                            <TrendingUp className="h-5 w-5 text-primary" />
+                            <span className="text-2xl font-bold text-primary">{item.effectiveness}%</span>
+                          </div>
+                          <p className="text-sm text-muted-foreground">Student Success Rate</p>
+                        </div>
+                        <div className="text-center">
+                          <div className="flex items-center justify-center space-x-1 mb-1">
+                            <Star className="h-5 w-5 text-yellow-500 fill-yellow-500" />
+                            <span className="text-2xl font-bold">{item.rating}</span>
+                          </div>
+                          <p className="text-sm text-muted-foreground">{item.reviewCount} reviews</p>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-2xl font-bold mb-1">
+                            {item.price === 0 ? "Free" : `$${item.price}`}
+                          </div>
+                          <p className="text-sm text-muted-foreground">
+                            {item.duration || "Self-paced"}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Tags */}
+                      <div>
+                        <h4 className="font-semibold mb-2">Course Features</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {item.tags.map(tag => (
+                            <Badge key={tag} variant="outline">
+                              {tag.replace('-', ' ')}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Action Buttons */}
+                      <div className="flex space-x-3 pt-4">
+                        <Button
+                          variant={item.isSelected ? "default" : "outline"}
+                          className="flex-1"
+                          onClick={() => {
+                            toggleSelected(item.id);
+                          }}
+                        >
+                          {item.isSelected ? (
+                            <>
+                              <Check className="h-4 w-4 mr-2" />
+                              Selected for Course
+                            </>
+                          ) : (
+                            "Select This Course"
+                          )}
+                        </Button>
+                        <Button variant="outline" onClick={() => toggleFavorite(item.id)}>
+                          <Heart className={`h-4 w-4 ${item.isFavorite ? "fill-red-500 text-red-500" : ""}`} />
+                        </Button>
+                      </div>
+                    </div>
+                  </DialogContent>
+                </Dialog>
               </div>
             </CardContent>
           </Card>
