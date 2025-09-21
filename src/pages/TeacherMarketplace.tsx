@@ -40,16 +40,21 @@ interface Content {
 const sampleCourses: Course[] = [
   { id: "cs301", name: "AP Computer Science A - 1st Period", subject: "Computer Science" },
   { id: "cs302", name: "AP Computer Science A - 3rd Period", subject: "Computer Science" },
-  { id: "cs101", name: "Intro to Computer Science", subject: "Computer Science" },
-  { id: "math205", name: "AP Calculus BC", subject: "Mathematics" },
-  { id: "eng102", name: "AP English Literature", subject: "English" },
+  { id: "cs303", name: "AP Computer Science A - 5th Period", subject: "Computer Science" },
+  { id: "cs304", name: "AP Computer Science A - 7th Period", subject: "Computer Science" },
+  { id: "cs305", name: "AP Computer Science A - Advanced", subject: "Computer Science" },
+  { id: "cs306", name: "AP Computer Science A - Honors", subject: "Computer Science" },
+  { id: "cs307", name: "AP Computer Science A - Accelerated", subject: "Computer Science" },
+  { id: "cs308", name: "AP Computer Science A - Evening", subject: "Computer Science" },
+  { id: "cs309", name: "AP Computer Science A - Summer", subject: "Computer Science" },
+  { id: "cs310", name: "AP Computer Science A - Weekend", subject: "Computer Science" },
 ];
 
 const sampleContent: Content[] = [
   {
     id: "1",
-    title: "Advanced Data Structures - Trees & Graphs",
-    description: "Comprehensive video series covering binary trees, AVL trees, and graph algorithms with practical implementations.",
+    title: "AP Computer Science A - Data Structures",
+    description: "Comprehensive video series covering arrays, ArrayLists, and 2D arrays with practical Java implementations.",
     subject: "Computer Science",
     type: "video",
     creator: {
@@ -61,17 +66,17 @@ const sampleContent: Content[] = [
     rating: 4.8,
     reviewCount: 247,
     duration: "3h 45m",
-    difficulty: "advanced",
-    tags: ["algorithms", "data-structures", "trees", "graphs"],
+    difficulty: "intermediate",
+    tags: ["arrays", "data-structures", "java", "ap-cs"],
     isFavorite: false,
     isSelected: true,
     price: "free"
   },
   {
     id: "2", 
-    title: "Calculus Integration Mastery Notes",
-    description: "Detailed study notes covering all integration techniques with step-by-step examples and practice problems.",
-    subject: "Mathematics",
+    title: "AP Computer Science A - Object-Oriented Programming",
+    description: "Complete guide to classes, objects, inheritance, and polymorphism with real-world examples and practice problems.",
+    subject: "Computer Science",
     type: "notes",
     creator: {
       name: "Dr. James Wilson",
@@ -81,35 +86,35 @@ const sampleContent: Content[] = [
     rating: 4.6,
     reviewCount: 156,
     difficulty: "intermediate",
-    tags: ["calculus", "integration", "derivatives"],
+    tags: ["oop", "classes", "inheritance", "java"],
     isFavorite: true,
     isSelected: false,
     price: "free"
   },
   {
     id: "3",
-    title: "Poetry Analysis Skills Quiz Pack",
-    description: "Interactive quiz series to test understanding of literary devices, meter, and poetic forms.",
-    subject: "English Literature", 
+    title: "AP Computer Science A - Algorithm Analysis",
+    description: "Interactive quiz series testing understanding of searching, sorting, and algorithm efficiency concepts.",
+    subject: "Computer Science", 
     type: "quiz",
     creator: {
       name: "Ms. Sarah Chen",
-      institution: "Local High School"
+      institution: "Princeton Academy"
     },
     effectiveness: 87,
     rating: 4.5,
     reviewCount: 98,
-    difficulty: "intermediate",
-    tags: ["poetry", "literary-analysis", "ap-english"],
+    difficulty: "advanced",
+    tags: ["algorithms", "sorting", "searching", "big-o"],
     isFavorite: false,
     isSelected: true,
     price: "free"
   },
   {
     id: "4",
-    title: "Organic Chemistry Mechanisms",
-    description: "Video lectures explaining reaction mechanisms with 3D molecular visualizations.",
-    subject: "Chemistry",
+    title: "AP Computer Science A - Recursion Mastery",
+    description: "Video lectures explaining recursive thinking with step-by-step problem solving and visualization.",
+    subject: "Computer Science",
     type: "video", 
     creator: {
       name: "Prof. David Kim",
@@ -118,18 +123,18 @@ const sampleContent: Content[] = [
     effectiveness: 92,
     rating: 4.7,
     reviewCount: 203,
-    duration: "5h 20m",
+    duration: "2h 30m",
     difficulty: "advanced",
-    tags: ["organic-chemistry", "mechanisms", "reactions"],
+    tags: ["recursion", "problem-solving", "java"],
     isFavorite: false,
     isSelected: false,
-    price: 29
+    price: 15
   },
   {
     id: "5",
-    title: "Physics Problem Solving Strategies",
-    description: "Comprehensive notes on systematic approaches to solving physics problems across all topics.",
-    subject: "Physics",
+    title: "AP Computer Science A - Unit Testing & Debugging",
+    description: "Comprehensive notes on writing test cases, debugging strategies, and code optimization techniques.",
+    subject: "Computer Science",
     type: "notes",
     creator: {
       name: "Dr. Lisa Park",
@@ -139,10 +144,107 @@ const sampleContent: Content[] = [
     rating: 4.4,
     reviewCount: 134,
     difficulty: "intermediate",
-    tags: ["physics", "problem-solving", "mechanics"],
+    tags: ["testing", "debugging", "best-practices"],
     isFavorite: true,
     isSelected: false,
     price: "free"
+  },
+  {
+    id: "6",
+    title: "AP Computer Science A - ArrayList Methods",
+    description: "Detailed video guide covering all ArrayList methods with practical coding examples and common use cases.",
+    subject: "Computer Science",
+    type: "video",
+    creator: {
+      name: "Dr. Jennifer Walsh",
+      institution: "Columbia University"
+    },
+    effectiveness: 91,
+    rating: 4.7,
+    reviewCount: 189,
+    duration: "1h 50m",
+    difficulty: "beginner",
+    tags: ["arraylist", "methods", "java", "collections"],
+    isFavorite: false,
+    isSelected: false,
+    price: "free"
+  },
+  {
+    id: "7",
+    title: "AP Computer Science A - Conditional Logic Practice",
+    description: "Interactive problem set focusing on if-statements, boolean logic, and decision-making in programming.",
+    subject: "Computer Science",
+    type: "quiz",
+    creator: {
+      name: "Mr. Robert Kim",
+      institution: "Cal Tech"
+    },
+    effectiveness: 88,
+    rating: 4.5,
+    reviewCount: 156,
+    difficulty: "beginner",
+    tags: ["conditionals", "boolean", "logic", "java"],
+    isFavorite: false,
+    isSelected: false,
+    price: "free"
+  },
+  {
+    id: "8",
+    title: "AP Computer Science A - Loop Structures",
+    description: "Complete study notes covering for loops, while loops, and nested iterations with performance analysis.",
+    subject: "Computer Science",
+    type: "notes",
+    creator: {
+      name: "Prof. Amanda Chen",
+      institution: "Berkeley"
+    },
+    effectiveness: 86,
+    rating: 4.4,
+    reviewCount: 201,
+    difficulty: "intermediate",
+    tags: ["loops", "iteration", "for-loops", "while-loops"],
+    isFavorite: true,
+    isSelected: false,
+    price: "free"
+  },
+  {
+    id: "9",
+    title: "AP Computer Science A - String Manipulation",
+    description: "Video series on String methods, substring operations, and character processing with real applications.",
+    subject: "Computer Science",
+    type: "video",
+    creator: {
+      name: "Dr. Michael Santos",
+      institution: "Yale University"
+    },
+    effectiveness: 90,
+    rating: 4.6,
+    reviewCount: 173,
+    duration: "2h 15m",
+    difficulty: "intermediate",
+    tags: ["strings", "methods", "substring", "java"],
+    isFavorite: false,
+    isSelected: false,
+    price: 12
+  },
+  {
+    id: "10",
+    title: "AP Computer Science A - Final Exam Prep",
+    description: "Comprehensive quiz pack covering all AP CS A topics with exam-style questions and detailed explanations.",
+    subject: "Computer Science",
+    type: "quiz",
+    creator: {
+      name: "Ms. Rachel Park",
+      institution: "Nexus Academy"
+    },
+    effectiveness: 95,
+    rating: 4.9,
+    reviewCount: 312,
+    difficulty: "advanced",
+    tags: ["exam-prep", "comprehensive", "ap-cs", "review"],
+    isFavorite: false,
+    isSelected: false,
+    price: 25
   }
 ];
 
@@ -197,12 +299,12 @@ export default function TeacherMarketplace() {
       return;
     }
 
+    const item = content.find(c => c.id === id);
+    const courseName = courses.find(c => c.id === selectedCourse)?.name;
+    
     setContent(prev => prev.map(c => 
       c.id === id ? { ...c, isSelected: !c.isSelected } : c
     ));
-    
-    const item = content.find(c => c.id === id);
-    const courseName = courses.find(c => c.id === selectedCourse)?.name;
     
     if (item && courseName) {
       toast({
@@ -443,7 +545,16 @@ export default function TeacherMarketplace() {
                 >
                   {item.isSelected ? "Selected" : "Select"}
                 </Button>
-                <Button variant="ghost" size="icon">
+                <Button 
+                  variant="ghost" 
+                  size="icon"
+                  onClick={() => {
+                    toast({
+                      title: "Content Details",
+                      description: `Viewing details for: ${item.title}`,
+                    });
+                  }}
+                >
                   <Download className="h-4 w-4" />
                 </Button>
               </div>

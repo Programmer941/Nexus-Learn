@@ -235,7 +235,7 @@ export default function Classes() {
                 </div>
                 <div>
                   <p className="text-muted-foreground">Contact</p>
-                  <p className="font-medium text-xs">{course.email}</p>
+                  <p className="font-medium text-xs truncate">{course.email}</p>
                 </div>
               </div>
 
