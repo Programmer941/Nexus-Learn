@@ -150,11 +150,11 @@ export default function TeacherMarketplace() {
   const { toast } = useToast();
   const [content, setContent] = useState<Content[]>(sampleContent);
   const [courses] = useState<Course[]>(sampleCourses);
-  const [selectedCourse, setSelectedCourse] = useState<string>("");
+  const [selectedCourse, setSelectedCourse] = useState<string>("all-courses");
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedSubject, setSelectedSubject] = useState<string>("");
-  const [selectedType, setSelectedType] = useState<string>("");
-  const [selectedDifficulty, setSelectedDifficulty] = useState<string>("");
+  const [selectedSubject, setSelectedSubject] = useState<string>("all-subjects");
+  const [selectedType, setSelectedType] = useState<string>("all-types");
+  const [selectedDifficulty, setSelectedDifficulty] = useState<string>("all-levels");
   const [sortBy, setSortBy] = useState<"effectiveness" | "rating" | "newest">("effectiveness");
 
   const subjects = [...new Set(content.map(c => c.subject))];
