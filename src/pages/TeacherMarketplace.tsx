@@ -164,9 +164,9 @@ export default function TeacherMarketplace() {
       const matchesSearch = c.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                            c.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
                            c.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
-      const matchesSubject = !selectedSubject || c.subject === selectedSubject;
-      const matchesType = !selectedType || c.type === selectedType;
-      const matchesDifficulty = !selectedDifficulty || c.difficulty === selectedDifficulty;
+      const matchesSubject = !selectedSubject || selectedSubject === "all-subjects" || c.subject === selectedSubject;
+      const matchesType = !selectedType || selectedType === "all-types" || c.type === selectedType;
+      const matchesDifficulty = !selectedDifficulty || selectedDifficulty === "all-levels" || c.difficulty === selectedDifficulty;
       
       return matchesSearch && matchesSubject && matchesType && matchesDifficulty;
     })
@@ -188,7 +188,7 @@ export default function TeacherMarketplace() {
   };
 
   const toggleSelected = (id: string) => {
-    if (!selectedCourse) {
+    if (!selectedCourse || selectedCourse === "all-courses") {
       toast({
         title: "No Course Selected",
         description: "Please select a course first before adding content.",
@@ -247,7 +247,7 @@ export default function TeacherMarketplace() {
           <p className="text-muted-foreground">
             Discover and select high-quality educational content from top institutions
           </p>
-          {selectedCourse && (
+          {selectedCourse && selectedCourse !== "all-courses" && (
             <div className="flex items-center space-x-2 mt-2">
               <Badge variant="outline">
                 Selected Course: {courses.find(c => c.id === selectedCourse)?.name}
@@ -286,7 +286,7 @@ export default function TeacherMarketplace() {
                 <SelectValue placeholder="Select Course" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Courses</SelectItem>
+                <SelectItem value="all-courses">All Courses</SelectItem>
                 {courses.map(course => (
                   <SelectItem key={course.id} value={course.id}>
                     {course.name}
@@ -300,7 +300,7 @@ export default function TeacherMarketplace() {
                 <SelectValue placeholder="Subject" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Subjects</SelectItem>
+                <SelectItem value="all-subjects">All Subjects</SelectItem>
                 {subjects.map(subject => (
                   <SelectItem key={subject} value={subject}>{subject}</SelectItem>
                 ))}
@@ -312,7 +312,7 @@ export default function TeacherMarketplace() {
                 <SelectValue placeholder="Type" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Types</SelectItem>
+                <SelectItem value="all-types">All Types</SelectItem>
                 <SelectItem value="video">Videos</SelectItem>
                 <SelectItem value="notes">Notes</SelectItem>
                 <SelectItem value="quiz">Quizzes</SelectItem>
@@ -324,7 +324,7 @@ export default function TeacherMarketplace() {
                 <SelectValue placeholder="Difficulty" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Levels</SelectItem>
+                <SelectItem value="all-levels">All Levels</SelectItem>
                 <SelectItem value="beginner">Beginner</SelectItem>
                 <SelectItem value="intermediate">Intermediate</SelectItem>
                 <SelectItem value="advanced">Advanced</SelectItem>
@@ -465,9 +465,9 @@ export default function TeacherMarketplace() {
                 variant="outline" 
                 onClick={() => {
                   setSearchTerm("");
-                  setSelectedSubject("");
-                  setSelectedType("");
-                  setSelectedDifficulty("");
+                  setSelectedSubject("all-subjects");
+                  setSelectedType("all-types");
+                  setSelectedDifficulty("all-levels");
                 }}
               >
                 Clear Filters
